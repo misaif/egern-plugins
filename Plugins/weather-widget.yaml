@@ -1,0 +1,33 @@
+# GitHub 远程安装前，必须将 script_url 改为仓库中脚本的实际 Raw HTTPS 地址。
+# 当前 weather-widget.js 仅为 Egern 本地脚本文件名；安装步骤见 README.md。
+name: 彩云天气
+description: 苹果天气风格；同一脚本适配 iPhone 桌面小、中、大号。
+icon: cloud.sun.fill
+
+env_schema:
+  REGION:
+    name: 地区
+    description: 请填写完整市区名，例如 杭州市西湖区；同名区需带城市名。
+    default_value: 杭州市西湖区
+  TITLE:
+    name: 显示名称
+    description: 可选；留空自动取区名。
+  REFRESH_MINUTES:
+    name: 期望刷新间隔（分钟）
+    default_value: "15"
+  DEBUG:
+    name: 调试日志
+    options: ["true", "false"]
+
+scriptings:
+  - generic:
+      name: caiyun-weather
+      script_url: weather-widget.js
+      timeout: 30
+
+widgets:
+  - name: 彩云天气
+    script_name: caiyun-weather
+    # REGION 留空，安装后在此小组件的 Env 中填写；不内置用户位置。
+    env:
+      REFRESH_MINUTES: "15"
