@@ -22,7 +22,7 @@ env_schema:
 scriptings:
   - generic:
       name: caiyun-weather
-      script_url: weather-widget.js
+      script_url: https://raw.githubusercontent.com/misaif/egern-plugins/refs/heads/main/scripts/weather/weather-widget.js
       timeout: 30
 
 widgets:
